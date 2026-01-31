@@ -1,0 +1,22 @@
+/* 專長頁面樣式 */
+main {
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+main::after {
+    content: "專長內容建置中...";
+    font-size: 1.5rem;
+    color: #fff;
+    opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+    main {
+        min-height: 300px;
+    }
+}

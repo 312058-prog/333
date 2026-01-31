@@ -1,0 +1,181 @@
+/* --- 全局設定 --- */
+.main-container {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* --- 標題區 --- */
+.intro-header {
+    text-align: center;
+    padding: 60px 20px;
+}
+.main-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #2a75bb; /* 寶可夢藍 */
+}
+.sub-title {
+    color: #f0ca7a;
+    font-size: 1.1rem;
+}
+
+/* --- 通用 Section 設定 --- */
+.poke-section {
+    display: flex;
+    flex-wrap: wrap; /* 讓手機版自動換行 */
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 60px 40px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    transition: transform 0.3s ease;
+}
+
+.poke-section:hover {
+    transform: translateY(-5px); /* 滑鼠移過去微微浮起 */
+}
+
+/* --- 左右反轉排版 --- */
+/* 注意：這裡使用 row-reverse 讓 HTML 結構順序不變，但視覺上圖片在右邊 */
+.layout-reverse {
+    flex-direction: row-reverse;
+}
+
+/* --- 圖片區塊 --- */
+.img-box {
+    flex: 1;
+    min-width: 280px;
+    text-align: center;
+}
+
+.poke-img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 20px; /* 預設圓角 */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    height: auto;
+}
+
+.poke-img:hover {
+    transform: scale(1.05) !important; /* 滑鼠懸停放大 */
+}
+
+/* 圖片旋轉裝飾 */
+.rotate-right { transform: rotate(3deg); }
+.rotate-left { transform: rotate(-3deg); }
+
+/* --- 文字區塊 --- */
+.text-box {
+    flex: 1;
+    min-width: 280px;
+}
+
+.type-badge {
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #fff;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.poke-name {
+    font-size: 2.2rem;
+    margin: 10px 0 20px 0;
+}
+
+.poke-desc {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    color: #555;
+}
+
+/* --- 列表樣式 --- */
+.skill-list {
+    list-style: none;
+    padding: 0;
+}
+
+.skill-list li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start; /* 對齊頂部，避免多行時跑版 */
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 12px;
+    margin-top: 8px; /* 微調圓點位置 */
+    flex-shrink: 0; /* 防止圓點被壓縮 */
+}
+
+/* --- 個別寶可夢主題配色 (Theme Colors) --- */
+
+/* 皮卡丘 */
+.theme-pikachu { background-color: #fff9db; }
+.theme-pikachu .type-badge { background-color: #FFCB05; color: #333; }
+.theme-pikachu .poke-name { color: #333; }
+.theme-pikachu .dot { background-color: #FFCB05; }
+.theme-pikachu .poke-img { border-radius: 50%; border: 8px solid #fff; } /* 專屬圓形頭像 */
+
+/* 妙蛙種子 */
+.theme-bulbasaur { background-color: #e8f5e9; }
+.theme-bulbasaur .type-badge { background-color: #4CAF50; }
+.theme-bulbasaur .poke-name { color: #2e7d32; }
+.theme-bulbasaur .dot { background-color: #4CAF50; }
+
+/* 小火龍 */
+.theme-charmander { background-color: #ffebee; }
+.theme-charmander .type-badge { background-color: #F44336; }
+.theme-charmander .poke-name { color: #c62828; }
+.theme-charmander .dot { background-color: #F44336; }
+
+/* 傑尼龜 */
+.theme-squirtle { background-color: #e3f2fd; }
+.theme-squirtle .type-badge { background-color: #2196F3; }
+.theme-squirtle .poke-name { color: #1565c0; }
+.theme-squirtle .dot { background-color: #2196F3; }
+
+/* --- RWD 手機版調整 --- */
+@media (max-width: 768px) {
+    .intro-header {
+        padding: 40px 20px;
+    }
+    .main-title {
+        font-size: 2rem;
+    }
+    .poke-section {
+        padding: 40px 20px;
+        flex-direction: column !important; /* 強制垂直排列 */
+        text-align: center; /* 手機版文字置中 */
+        gap: 20px;
+    }
+    
+    .layout-reverse {
+        /* 手機版取消反轉，讓圖片統一在上方 */
+        flex-direction: column !important; 
+    }
+
+    .skill-list li {
+        justify-content: center; /* 列表置中 */
+        text-align: left; /* 文字靠左比較好閱讀 */
+    }
+    
+    .img-box, .text-box {
+        width: 100%;
+        min-width: 0;
+    }
+    
+    .poke-name {
+        font-size: 1.8rem;
+    }
+}

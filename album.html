@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="album.css">
+
+<body>
+    <header>
+        <h1><a href="index.html">處二孝25張開元</a></h1>
+        <nav>
+            <ul>
+                <li><a href="about.html">關於</a></li>
+                <li><a href="like.html">我的興趣</a></li>
+                <li><a href="skill.html">我的專長</a></li>
+                <li><a href="album.html">我的相簿</a></li>
+                <li><a href="contact.html">聯絡我</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="box1">
+        <aside>
+            <div id="photo">
+                <img src="img\main.png" alt="">
+            </div>
+            <p><b>姓名：</b>皮卡丘</p>
+            <p>寶可夢</p>
+            <p><b>AKA</b>皮卡丘</p>
+            <p id="a_text">很厲害</p>
+        </aside>
+        <main>
+            <section class="gallery-header">
+                <h2>我的相簿</h2>
+                <p>探索我們精選的視覺饗宴。</p>
+            </section>
+       
+            <section class="image-gallery">
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="img\666.jpg" alt="御三家" data-full="img\666.jpg">
+                        <div class="caption">御三家</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img\6666.jpg" alt="種子" data-full="img\6666.jpg">
+                        <div class="caption">種子</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img\6665.jpg" alt="御三家2" data-full="img\6665.jpg">
+                        <div class="caption">御三家2</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img\6666.png" alt="皮卡丘" data-full="img\6666.png">
+                        <div class="caption">皮卡丘</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img\小智與皮卡丘.jpg" alt="小智與皮卡丘" data-full="img\小智與皮卡丘.jpg">
+                        <div class="caption">小智與皮卡丘</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="img\222.jpg" alt="皮卡" data-full="img\222.jpg">
+                        <div class="caption">皮卡</div>
+                    </div>
+                    </div>
+            </section>
+       
+            <div id="lightbox" class="lightbox">
+                <span class="close-btn">&times;</span>
+                <img class="lightbox-content" id="lightbox-img" src="" alt="">
+                <div id="lightbox-caption" class="lightbox-caption"></div>
+            </div>
+        </main>
+       
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const galleryItems = document.querySelectorAll('.gallery-item img');
+                const lightbox = document.getElementById('lightbox');
+                const lightboxImg = document.getElementById('lightbox-img');
+                const lightboxCaption = document.getElementById('lightbox-caption');
+                const closeBtn = document.querySelector('.close-btn');
+       
+                galleryItems.forEach(item => {
+                    item.addEventListener('click', () => {
+                        lightbox.style.display = 'flex';
+                        lightboxImg.src = item.dataset.full; // 使用 data-full 屬性獲取大圖連結
+                        lightboxCaption.innerHTML = item.alt;
+                    });
+                });
+       
+                closeBtn.addEventListener('click', () => {
+                    lightbox.style.display = 'none';
+                });
+       
+                // 點擊燈箱外部區域也關閉
+                lightbox.addEventListener('click', (e) => {
+                    if (e.target === lightbox) {
+                        lightbox.style.display = 'none';
+                    }
+                });
+       
+                // 鍵盤 ESC 關閉燈箱
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+                        lightbox.style.display = 'none';
+                    }
+                });
+            });
+        </script>
+
+    </div>
+    <footer>
+        <p>Copyright © 2026 處二孝25張開元 312067.</p>
+    </footer>
+
+</body>
+
+</html>

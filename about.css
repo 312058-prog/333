@@ -1,0 +1,290 @@
+/* --- 基礎設定 --- */
+.pika-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    max-width: 1000px;
+    margin: 0 auto;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    overflow: hidden; /* 防止圓角溢出 */
+    min-height: 100vh;
+}
+
+/* --- Hero 區域 (頂部大圖) --- */
+.pika-hero {
+    background: linear-gradient(135deg, #FFCB05 0%, #F5A623 100%); /* 皮卡丘黃漸層 */
+    padding: 60px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    border-radius: 0 0 50% 10% / 0 0 20px 20px; /* 底部波浪造型 */
+    margin-bottom: 40px;
+}
+
+.hero-content {
+    flex: 1;
+    z-index: 2;
+}
+
+.pika-id {
+    font-size: 1.2rem;
+    font-weight: bold;
+    opacity: 0.6;
+    letter-spacing: 2px;
+}
+
+.pika-title {
+    font-size: 4rem;
+    margin: 10px 0;
+    color: #333;
+    line-height: 1;
+}
+
+.en-name {
+    font-size: 1.5rem;
+    color: #554a2a;
+    font-weight: normal;
+}
+
+.type-tag {
+    display: inline-block;
+    background-color: #333;
+    color: #FFCB05;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.hero-desc {
+    font-size: 1.2rem;
+    max-width: 400px;
+    line-height: 1.6;
+    color: #4a4a4a;
+}
+
+/* 圖片與裝飾 */
+.hero-image-wrapper {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.main-pika-img {
+    width: 350px;
+    max-width: 100%;
+    height: auto;
+    z-index: 2;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+    animation: float 3s ease-in-out infinite; /* 懸浮動畫 */
+}
+
+/* 簡單的懸浮動畫 */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* --- 內容網格佈局 --- */
+.pika-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    padding: 0 40px 60px 40px;
+}
+
+/* 通用卡片樣式 */
+.detail-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.detail-card h3 {
+    margin-top: 0;
+    border-left: 5px solid #FFCB05;
+    padding-left: 15px;
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+}
+
+/* --- 左欄：數據條 --- */
+.stat-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.stat-label {
+    width: 60px;
+    font-weight: bold;
+    color: #666;
+}
+
+.progress-bg {
+    flex: 1;
+    background-color: #eee;
+    height: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #F5A623; /* 橘黃色 */
+    border-radius: 6px;
+    text-align: right;
+    font-size: 10px;
+    color: white;
+    line-height: 12px;
+    padding-right: 5px;
+    width: 0; /* 初始寬度為 0，透過動畫展開 */
+    animation: slideIn 1s ease-out forwards;
+}
+
+/* 進度條動畫 */
+@keyframes slideIn {
+    to { width: var(--target-width, 100%); }
+}
+
+/* 身高體重小網格 */
+.info-grid {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    background: #fff9db;
+    padding: 20px;
+    border-radius: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.info-item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 80px;
+}
+
+.info-item small {
+    color: #888;
+    margin-bottom: 5px;
+}
+
+.info-item strong {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* --- 右欄：招式與進化 --- */
+.moves-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.move-badge {
+    background-color: #333;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    border: 1px solid #333;
+    transition: all 0.2s;
+}
+
+.move-badge:hover {
+    background-color: #FFCB05;
+    color: #333;
+    border-color: #FFCB05;
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background: #eee;
+    margin: 30px 0;
+}
+
+/* 進化鏈 */
+.evo-chain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.evo-step {
+    text-align: center;
+    opacity: 0.5; /* 非當前型態半透明 */
+    transform: scale(0.9);
+}
+
+.evo-step.active {
+    opacity: 1;
+    transform: scale(1.1);
+    font-weight: bold;
+}
+
+.evo-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #eee;
+    margin: 0 auto 5px auto;
+}
+
+.pichu { background-color: #fff5c4; border: 2px solid #e0e0e0; }
+.pikachu { background-color: #FFCB05; border: 2px solid #F5A623; }
+.raichu { background-color: #F08030; border: 2px solid #c66900; }
+
+.arrow {
+    color: #ccc;
+    font-size: 1.2rem;
+}
+
+.flavor-text {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #555;
+    border-left: 4px solid #cc0000;
+}
+
+/* --- RWD 手機版適配 --- */
+@media (max-width: 768px) {
+    .pika-hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 40px 20px;
+        border-radius: 0 0 30px 30px;
+    }
+
+    .pika-title {
+        font-size: 3rem;
+    }
+    
+    .hero-desc {
+        margin: 0 auto;
+    }
+
+    .pika-details-grid {
+        grid-template-columns: 1fr;
+        padding: 0 20px 40px 20px;
+    }
+    
+    .main-pika-img {
+        width: 250px;
+        margin-bottom: 20px;
+    }
+}

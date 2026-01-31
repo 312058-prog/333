@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="contact.css">
+
+<body>
+    <header>
+        <h1><a href="index.html">處二孝25張開元</a></h1>
+        <nav>
+            <ul>
+                <li><a href="about.html">關於</a></li>
+                <li><a href="like.html">我的興趣</a></li>
+                <li><a href="skill.html">我的專長</a></li>
+                <li><a href="album.html">我的相簿</a></li>
+                <li><a href="contact.html">聯絡我</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="box1">
+        <aside>
+            <div id="photo">
+                <img src="img\main.png" alt="">
+            </div>
+            <p><b>姓名：</b>皮卡丘</p>
+            <p>寶可夢</p>
+            <p><b>AKA</b>皮卡丘</p>
+            <p id="a_text">很厲害</p>
+        </aside>
+        <main class="contact-main">
+            <section class="contact-header">
+                <h1 class="eng-title">Contact Us</h1>
+                <h2 class="chi-title">聯絡我們</h2>
+                <p class="description">
+                    若您有任何需要我們服務的地方，請填寫以下表單表達您的意見，我們收到您的來信後，將儘速於 1~3 日內回覆
+                </p>
+            </section>
+        
+            <section class="contact-form-section">
+                <form id="contact-form">
+                    <div class="form-row">
+                        <div class="form-group flex-1">
+                            <label>諮詢項目 <span class="required">*</span></label>
+                            <select required>
+                                <option value="">請選擇</option>
+                                <option value="business">商務合作</option>
+                                <option value="service">產品諮詢</option>
+                            </select>
+                        </div>
+                        <div class="form-group flex-1">
+                            <label>公司名稱 <span class="required">*</span></label>
+                            <input type="text" placeholder="請輸入" required>
+                        </div>
+                    </div>
+        
+                    <div class="form-row">
+                        <div class="form-group flex-1">
+                            <label>姓名 <span class="required">*</span></label>
+                            <div class="input-with-radio">
+                                <input type="text" placeholder="請輸入" required>
+                                <div class="radio-group">
+                                    <label><input type="radio" name="gender" value="Mr" checked> 先生</label>
+                                    <label><input type="radio" name="gender" value="Ms"> 小姐</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="form-row">
+                        <div class="form-group flex-1">
+                            <label>聯絡電話 <span class="required">*</span></label>
+                            <input type="tel" placeholder="請輸入" required>
+                        </div>
+                        <div class="form-group flex-1">
+                            <label>Email <span class="required">*</span></label>
+                            <input type="email" placeholder="請輸入" required>
+                        </div>
+                    </div>
+        
+                    <div class="form-row">
+                        <div class="form-group flex-1">
+                            <label>需求說明 <span class="required">*</span></label>
+                            <textarea rows="8" placeholder="請輸入" required></textarea>
+                        </div>
+                    </div>
+        
+                    <div class="form-action">
+                        <button type="submit" class="submit-btn">
+                            <span>送出</span>
+                            <i class="arrow-icon">›</i>
+                        </button>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+    <footer>
+        <p>Copyright © 2026 處二孝25張開元 312067.</p>
+    </footer>
+
+</body>
+
+</html>

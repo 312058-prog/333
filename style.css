@@ -1,0 +1,243 @@
+@font-face{
+    font-family: "Font1";
+    src: url('font/GenWanMin2TC-EL.otf');
+    
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* 加入 box-sizing 確保寬度計算正確 */
+}
+p{
+    color: rgb(230, 201, 106);
+}
+h1{
+    color: rgb(0, 26, 255)
+}
+a{
+    color: #e9aa77;
+    text-decoration: none;
+}
+body{
+    background-color: #15aff7;
+    font-family: "Font1";
+    
+}
+header, aside, main, footer{
+    border-radius: 20px;
+    margin: 30px;
+    box-shadow: 5px 5px 5px 5px #5252524f;
+}
+aside, main{
+    margin: 30px 15px;
+}
+.header-container { 
+    margin: auto;
+    width: 80%;
+    height: auto; /* 改為 auto 以適應內容 */
+    min-height: 200px;
+    background-color: rgb(1, 119, 245);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* 導覽列整體樣式 */
+nav ul {
+    list-style: none; /* 移除列表符號 */
+    padding: 0;
+    margin: 0;
+    display: flex; /* 讓選項水平排列 */
+    flex-wrap: wrap; /* 讓手機版可換行 */
+    justify-content: center;
+}
+
+nav li {
+    margin: 10px 15px; /* 調整選項間距 */
+}
+
+/* 連結基本樣式 (最重要) */
+nav a {
+    color: white; /* 連結文字顏色 */
+    text-decoration: none; /* 移除預設下劃線 */
+    padding: 5px 0; /* 上下留一點空間 */
+    position: relative; /* 為了讓偽元素定位 (::after) */
+    
+    /* 讓 transition 動畫更平滑，例如文字顏色變化 */
+    transition: color 0.3s ease; 
+}
+
+/* --- 動畫效果區域 (使用偽元素實現下劃線) --- */
+
+/* 1. 設定動畫元素 (下劃線) 的初始狀態 */
+nav a::after {
+    content: ''; 
+    position: absolute; /* 絕對定位在連結的下方 */
+    bottom: 0;
+    left: 0;
+    width: 100%; /* 寬度與連結一樣 */
+    height: 3px; /* 下劃線的厚度 */
+    background-color: aqua; /* 下劃線顏色 */
+    
+    /* 關鍵：初始時將 X 軸縮放為 0 (隱藏) */
+    transform: scaleX(0); 
+    /* 設定動畫速度 and 緩動函數 */
+    transition: transform 0.3s ease-out; 
+    
+    /* 讓縮放從中間開始 */
+    transform-origin: center; 
+}
+
+/* 2. 設定滑鼠移入時的狀態 */
+nav a:hover {
+    color: aqua; /* 滑入時文字變色 */
+}
+
+nav a:hover::after {
+    /* 關鍵：滑入時將 X 軸縮放為 1 (完整顯示) */
+    transform: scaleX(1); 
+}
+
+#box1{
+    display: flex;
+    width: 80%;
+    margin: auto;
+}
+
+main{
+    width: 75%;
+    background-color: rgb(9, 79, 230);
+    padding: 20px;
+}
+.s1{
+    display: flex;
+    margin: 20px 0;
+}
+.s1 img{
+    width: 50%;
+    display: block;
+}
+aside{
+    width: 25%;
+    height: auto; /* 改為 auto 以適應內容 */
+    min-height: 600px;
+    background-color: rgb(235, 133, 16);
+    padding-bottom: 30px;
+}
+footer{
+    margin: auto;
+    width: 80%;
+    height: auto;
+    min-height: 100px;
+    background-color: rgb(238, 238, 222);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+nav ul{
+    margin-top: 30px;
+    display: flex;
+}
+nav ul li{
+    margin: 10px 30px;
+    font-size: 1.05em;
+    list-style: none;
+}
+#photo{
+    width: 130px;
+    height: 130px;
+    background-color: rgb(4, 4, 190);
+    border-radius: 130px;
+    margin: auto;
+    margin-top: 30px;
+    border: 10px #1508cb solid;
+
+    overflow: hidden;
+}
+#photo img{
+    width: 280px;
+    position: relative;
+    /* top: ;
+    botton: ;
+    left: ;*/
+    right: 55px;
+}
+aside p{
+    text-align: center;
+    margin-top: 20px;
+}
+#a_text{
+    padding: 0 20px;
+    text-align: left;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 20px;
+}
+
+li::before {
+    content: "🐾";
+    position: absolute;
+    left: 0;
+    font-size: 0.8rem;
+}
+
+/* --- RWD 響應式調整 --- */
+@media (max-width: 1024px) {
+    #box1 {
+        width: 95%;
+    }
+    header, footer {
+        width: 95%;
+    }
+}
+
+@media (max-width: 768px) {
+    #box1 {
+        flex-direction: column;
+    }
+    aside, main {
+        width: calc(100% - 30px); /* 扣除 margin */
+        margin: 15px auto;
+    }
+    aside {
+        min-height: auto;
+    }
+    nav ul li {
+        margin: 10px 15px;
+    }
+    .header-container {
+        width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+    nav ul li {
+        margin: 5px 10px;
+        font-size: 0.9rem;
+    }
+    #photo {
+        width: 100px;
+        height: 100px;
+        border-width: 5px;
+    }
+    #photo img {
+        width: 220px;
+        right: 45px;
+    }
+}
